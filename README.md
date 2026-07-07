@@ -13,3 +13,10 @@ O **ScanScore** é uma aplicação baseada em visão computacional projetada par
 ### 🎯 Motivação e Impacto Social
 
 Professores, especialmente na rede pública de ensino, perdem dezenas de horas valiosas todos os meses corrigindo provas à mão. O ScanScore nasceu para devolver esse tempo aos educadores, utilizando o Reconhecimento Óptico de Marcas (OMR) para escanear e tabular notas em segundos, permitindo que o foco principal volte a ser o ensino e o desenvolvimento dos alunos.
+
+### 🛠️ Tecnologias Utilizadas
+
+- **Linguagem:** Java
+- **Framework Principal:** Spring Boot (Spring Web, Spring Boot DevTools)
+- **Visão Computacional:** OpenCV
+- **Utilitários:** Project Lombok
