@@ -41,3 +41,15 @@ Aqui entra a lógica principal do motor. Para ensinar o sistema a separar o que 
 * 🛑 **Filtro Anti-Gigantes:** O tamanho máximo foi limitado a `80x80` pixels. Se uma forma for maior que isso, significa que o sistema provavelmente esbarrou numa caixa preta do cabeçalho ou capturou a borda escura da mesa onde a foto foi tirada.
 
 Se uma mancha passar nestes três testes simultaneamente, ela é classificada oficialmente como uma bolinha válida. Só então as suas coordenadas (X, Y) são guardadas para avançar para a próxima fase do sistema: olhar para dentro dessa coordenada, verificar se está preenchida com tinta e calcular a nota do aluno.
+
+### 4. Estruturação do Gabarito (Organização em Grid)
+
+As bolinhas validadas na etapa anterior são entregues de forma caótica pelo OpenCV. Para transformar essa "nuvem" de coordenadas em um gabarito estruturado, o motor executa um algoritmo de ordenação espacial:
+
+* ⬇️ **Ordenação Vertical (Eixo Y):** Todas as bolinhas são ordenadas de cima para baixo. Isso garante que a leitura comece pela primeira questão da folha.
+
+* 📏 **Agrupamento por Linha (Tolerância Y):** Como a foto do papel nunca é 100% reta, o algoritmo utiliza uma margem de segurança (ex: `15 pixels`). Se a altura (Y) da próxima bolinha for próxima à da anterior, ela é agrupada na mesma linha (mesma questão). Se a diferença for grande, o sistema entende que houve uma quebra de linha.
+
+* ➡️ **Ordenação Horizontal (Eixo X):** Com as bolinhas agrupadas em uma questão, elas são ordenadas da esquerda para a direita. Assim, garante-se que o índice `0` será sempre a alternativa 'A', o `1` a 'B', e assim por diante.
+
+O resultado final desta etapa é uma matriz perfeitamente estruturada (Um Mapa de Questões para Alternativas), pronta para a etapa final: analisar o preenchimento de tinta dentro de cada coordenada e calcular a nota.
