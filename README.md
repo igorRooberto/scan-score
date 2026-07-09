@@ -67,3 +67,11 @@ Com o gabarito perfeitamente estruturado, o motor precisa descobrir quais bolinh
   * **Resposta Válida (`A`, `B`, `C`...):** Apenas uma única alternativa passou no limiar de tinta.
 
 No final desta etapa, toda a complexidade visual do OpenCV é descartada, e o sistema entrega um dicionário de dados limpo e ordenado (ex: `{1='A', 2='C', 3='-', 4='*'}`), pronto para o Motor de Correção calcular a nota final do aluno.
+
+### 6. Motor de Correção (A Avaliação Final)
+Com o dicionário do aluno extraído, o sistema entra na sua fase de lógica de negócio pura, abandonando o processamento de imagem. O objetivo é cruzar as respostas lidas com o Gabarito Oficial e gerar o boletim:
+
+* 🛡️ **Iteração Segura:** O motor percorre sempre o *Gabarito Oficial* (que dita o número exato de questões). Isto garante que, se uma questão não for lida na foto, o aluno não é avaliado por uma prova mais curta.
+* ⚖️ **Fallback:** Questões não detectadas caem automaticamente num comportamento padrão (`getOrDefault`), sendo categorizadas como Em Branco (`-`).
+* 🧮 **Lógica de Correção:** Um Switch Expression compara as respostas. Calcula-se a percentagem de acertos e converte-se numa nota precisa de `0.00` a `10.00`.
+* 📦 **Empacotamento:** O boletim final, contendo pontuação, erros e acertos, é montado utilizando o padrão de projeto *Builder* num DTO limpo (`ExamResultDto`).
