@@ -6,6 +6,8 @@
 
 > **SCAN. GRADE. DELIVER RESULTS.**
 
+## ⚠️ Nota de Desenvolvimento (Status: Protótipo)
+
 ### 📝 Sobre o Projeto
 
 O **ScanScore** é uma aplicação baseada em visão computacional projetada para automatizar a correção de provas de múltipla escolha (gabaritos), reduzindo drasticamente o tempo de trabalho manual de educadores.
@@ -71,4 +73,4 @@ Aqui o processamento de imagem acaba e eu entro em lógica de negócio pura. Eu 
 
 ---
 
-## ⚠️ Nota de Desenvolvimento (Status: Protótipo)
+
