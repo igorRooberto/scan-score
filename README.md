@@ -59,7 +59,7 @@ Com o gabarito perfeitamente estruturado, o motor precisa descobrir quais bolinh
 
 *  **Recorte (Region of Interest):** Para cada bolinha, as suas coordenadas são usadas para extrair um "recorte" exato (`Rect`) daquela pequena região na imagem original binarizada.
 *  **Contagem de Pixels (Tinta):** Como a imagem está invertida (tinta = branco), uma função nativa (`Core.countNonZero`) conta exatamente quantos pixels de tinta existem dentro do recorte.
-*  **O Limiar de Aceitação (Threshold):** Calcula-se a percentagem de preenchimento dividindo os pixels de tinta pela área total do retângulo. Se a bolinha tiver mais de 40% de preenchimento, o sistema considera-a marcada.
+*  **O Limiar de Aceitação (Threshold):** Calcula-se a percentagem de preenchimento dividindo os pixels de tinta pela área total do retângulo. Se a bolinha tiver mais de 70% de preenchimento, o sistema considera-a marcada.
 *  **Regras de Negócio (O Juiz):** O motor previne fraudes e esquecimentos aplicando três regras finais a cada questão:
    * **Em Branco (-):** O aluno não atingiu o limiar de 40% em nenhuma das alternativas.
    * **Anulada/Rasurada (*):** O aluno atingiu o limiar em 2 ou mais alternativas (tentativa de marcar mais de uma ou erro ao apagar).
