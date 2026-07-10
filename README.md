@@ -18,7 +18,7 @@ Professores, especialmente na rede pública de ensino, perdem dezenas de horas v
 
 - **Linguagem:** Java
 - **Framework Principal:** Spring Boot (Spring Web, Spring Boot DevTools)
-- **Visão Computacional:** OpenCV
+- **Visão Computacional:** OpenCV (via biblioteca `org.openpnp`)
 - **Utilitários:** Project Lombok
 
 ## 🧠 Como Funciona o Meu Motor de Visão Computacional (OMR)
