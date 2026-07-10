@@ -44,7 +44,7 @@ Para ensinar o sistema a separar as bolinhas reais de todo o resto do lixo visua
 Se a mancha passar nesses quatro testes ao mesmo tempo, eu a classifico oficialmente como uma bolinha válida e guardo suas coordenadas (X, Y).
 
 ### 4. Estruturação do Gabarito (Organização em Grid)
-O OpenCV me entrega as bolinhas validadas em uma lista totalmente caótica. Para transformar essa "nuvem" de coordenadas em uma estrutura de gabarito que faça sentido, eu desenvolvi um algoritmo de ordenação espacial:
+O OpenCV me entrega as bolinhas validadas em uma lista totalmente caótica. Para transformar ascoordenadas em uma estrutura de gabarito que faça sentido, eu desenvolvi um algoritmo de ordenação espacial:
 * ⬇️ **Ordenação Vertical (Eixo Y):** Eu ordeno todas as formas de cima para baixo para garantir que a leitura comece sempre pela primeira questão da folha.
 * 📏 **Agrupamento por Linha (Tolerância Y):** Como a foto do papel nunca fica 100% reta, eu defini uma tolerância de segurança de 15 pixels. Se a altura (Y) da próxima bolinha for muito próxima à da anterior, eu coloco-as na mesma linha (mesma questão). Se a diferença for grande, o sistema entende que mudou de linha.
 * 🛡️ **Tolerância a Falhas (Filtro Mágico):** Para evitar que textos isolados do papel criem questões falsas, eu criei uma regra onde a linha precisa ter pelo menos 4 bolinhas (`>= 4`) para ser considerada uma questão válida. Eu optei por aceitar a partir de 4 em vez de exigir exatamente 5 para proteger o aluno, caso o flash da câmera apague completamente os contornos de uma alternativa vazia.
