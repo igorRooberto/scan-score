@@ -34,7 +34,7 @@ Eu escolhi essa abordagem porque o algoritmo analisa o contraste em pequenos blo
 ### 2. A Busca pelas Formas (findContours)
 Com a imagem limpa em preto e branco, eu utilizo a função `findContours` do OpenCV. Ela varre a imagem mapeando qualquer "ilha" contínua de pixels brancos. O grande desafio aqui é que a biblioteca me entrega absolutamente tudo: as letras do cabeçalho, os riscos tortos, as margens da folha e as bolinhas do gabarito.
 
-### 3. A Minha "Peneira" de Validação (Filtro Heurístico)
+### 3. A Minha de Validação (Filtro Heurístico)
 Para ensinar o sistema a separar as bolinhas reais de todo o resto do lixo visual, eu traço um retângulo imaginário (`boundingRect`) ao redor de cada forma encontrada e aplico quatro regras de validação geométrica:
 * 📐 **A Regra da Proporção (Aspect Ratio):** Eu divido a largura da forma pela altura e exijo que o resultado fique entre 0.85 e 1.15. Como um círculo perfeito cabe perfeitamente dentro de um quadrado, se a forma for esticada (como uma linha ou uma letra oval), eu a descarto na hora.
 * 🔎 **Filtro Anti-Poeira:** Eu defini que a mancha precisa ter pelo menos 15x15 pixels. Assim, eu evito que o programa confunda um pingo acidental de tinta ou poeira com uma marcação.
