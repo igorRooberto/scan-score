@@ -70,3 +70,5 @@ Aqui o processamento de imagem acaba e eu entro em lógica de negócio pura. Eu 
 *  **Cálculo da Nota:** Uso um switch expression moderno para computar acertos, erros e converter o resultado em uma nota precisa de 0.00 a 10.00, entregando tudo formatado em um DTO limpo (`ExamResultDto`).
 
 ---
+
+## ⚠️ Nota de Desenvolvimento (Status: Protótipo)
